@@ -18,13 +18,11 @@ func TestOSS(t *testing.T) {
 	}
 
 	// 上传文件
-	err = client.UploadFile("hello.txt", "./hello.txt")
+	url, err := client.UploadFile("./hello.txt")
 	if err != nil {
 		t.Fatal("upload error:", err)
 	}
 
-	// 获取访问链接
-	url := client.GetURL("hello.txt")
 	fmt.Println("Public URL:", url)
 
 	// 获取签名链接
